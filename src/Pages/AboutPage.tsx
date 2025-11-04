@@ -33,8 +33,9 @@ const AboutPage: React.FC = () => {
           </p>
 
           <h2 className="text-3xl font-bold text-purple-700 mb-6 mt-10">Get in Touch</h2>
-          <p className="text-gray-700 mb-6 leading-relaxed">
-            We love hearing from our users! Whether you have feedback, a question, or a success story, please don't hesitate to reach out to us at <a href="mailto:support@iprepielts.com" className="text-purple-600 hover:underline font-medium">support@iprepielts.com</a>.
+          <p className="text-gray-700 mb-6 leading-relaxed pb-4">
+            We love hearing from our users! Whether you have feedback, a question, or a success story, please don't hesitate to reach out to us at <a href="" className="text-purple-600 hover:underline font-medium pb-5"></a>.
+            <a href="/contactus" className="flex items-center justify-center bg-purple-600 text-white font-semibold text-base py-3 px-6 rounded-lg  shadow-lg hover:bg-purple-700 transition duration-300 transform hover:scale-[1.02]">Start a Conversation</a>
           </p>
         </div>
       </section>

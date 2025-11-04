@@ -14,6 +14,7 @@ import HowItWorksPage from './Pages/HowItWorksPage';
 import UseCasesPage from './Pages/UseCasesPage';
 import PartnershipsPage from './Pages/PartnershipsPage';
 import OffersPage from './Pages/OffersPage';
+import ContactUs from './Pages/ContactUS';
 
 // Layout component to wrap pages with Header and Footer
 const Layout = () => {
@@ -60,6 +61,7 @@ const App = () => {
         <Route path="use-cases" element={<UseCasesPage />} />
         <Route path="partnerships" element={<PartnershipsPage />} />
         <Route path="offers" element={<OffersPage />} />
+         <Route path="contactus" element={<ContactUs />} />
       </Route>
     </Routes>
   );

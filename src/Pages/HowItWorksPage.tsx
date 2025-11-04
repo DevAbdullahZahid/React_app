@@ -29,32 +29,7 @@ const HowItWorksPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {/* ... (The three "Define/Track/Reach" cards from HomePage.tsx) ... */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 group cursor-pointer">
-            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-              <Target className="w-8 h-8 text-purple-600" />
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Define Your Target</h3>
-            <p className="text-purple-100">Set your desired band score and let our system map out the exact path to get you there</p>
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 group cursor-pointer">
-            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-              <TrendingUp className="w-8 h-8 text-purple-600" />
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Track Progress</h3>
-            <p className="text-purple-100">Monitor your improvement in real-time with detailed analytics and milestone achievements</p>
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 group cursor-pointer">
-            <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
-              <Award className="w-8 h-8 text-purple-600" />
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-4">Reach Your Goal</h3>
-            <p className="text-purple-100">Follow your personalized study plan and achieve your target score with confidence</p>
-          </div>
-        </div>
+        
 
         <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/20">
           <div className="grid md:grid-cols-2 gap-12 items-center">

@@ -40,32 +40,7 @@ const UseCasesPage: React.FC = () => {
       title: 'For Educators',
       description: 'Experience full-length practice exams that perfectly simulate real test conditions, format, and timing. Build confidence and stamina to eliminate test-day anxiety.'
     },
-    {
-      icon: Award, 
-      title: 'Targeted Skill Drills',
-      description: 'Pinpoint and strengthen specific weak spots with focused exercises on grammar, vocabulary, or complex question types, turning challenges into confidence.'
-    },
-    {
-      icon: Award, 
-      title: 'Premium Content Library',
-      description: 'Access thousands of verified, high-quality resources, including expert video lectures, downloadable guides, and official practice question sets, all in one place.'
-    },
-    {
-      icon: Award, 
-      title: 'Integrated Speaking/Writing Review',
-      description: 'Receive AI-powered analysis and expert scoring on your spoken and written submissions, delivering actionable advice to dramatically boost your communicative skills.'
-    },
-    {
-      icon: Award, 
-      title: 'Universal Accessibility',
-      description: 'Study seamlessly across all devices (mobile, tablet, desktop). Our platform is optimized for accessibility, ensuring a smooth and uninterrupted learning experience for everyone, everywhere.'
-    },
-    {
-      icon: Award, 
-      title: 'Dedicated Student Support',
-      description: 'Never get stuck. Access our team of expert tutors and technical support staff via live chat or email to get fast, reliable answers to your study and platform questions.'
-    }
-
+    
   ];
 
   return (

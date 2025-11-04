@@ -1,9 +1,25 @@
-// src/components/Footer.tsx
 import React from 'react';
-import { Link } from 'react-router';
+// Assuming you are using 'react-router-dom' or similar, which provides the Link component
+import { Link } from 'react-router-dom'; // NOTE: I changed 'react-router' to 'react-router-dom' as it is the common package
+
 import { Sparkles } from 'lucide-react';
 
+const GooglePlayIcon = ({ className = "w-6 h-6" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path fillRule="evenodd" clipRule="evenodd" d="M3.737 21.085l16.142-8.525a.916.916 0 000-1.831L3.737 2.203 3 5.483l12.79 6.75-12.79 6.75-.737 3.32z" />
+  </svg>
+);
+
+const AppleIcon = ({ className = "w-6 h-6" }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1.848-11.458c.459-1.25.967-2.67 1.848-2.67.882 0 1.258 1.14 1.258 2.067 0 1.625-.976 2.458-2.585 2.458-.517 0-.91-.18-1.521-.734zm3.903-4.148c.18-.752-.259-1.31-.95-1.31-.693 0-1.12.558-1.12 1.31 0 .734.427 1.288 1.12 1.288.691 0 1.13-.538.95-1.288zM9.42 16.48c.49 1.34 1.026 2.82 1.956 2.82.93 0 1.34-1.21 1.34-2.18 0-1.72-.92-2.61-2.73-2.61-.54 0-.96.2-.14.75z"/>
+  </svg>
+);
+
 const Footer: React.FC = () => {
+  // Utility function to apply common classes
+  const linkClasses = "hover:text-purple-400 transition-colors duration-300";
+  
   return (
     <footer className="bg-gray-900 text-gray-400 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -13,7 +29,6 @@ const Footer: React.FC = () => {
               <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center shadow-lg shadow-purple-900/50">
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
-              {/* --- BRANDING CHANGE --- */}
               <span className="text-white font-bold">iPrep IELTS</span>
             </div>
             <p className="text-sm">
@@ -23,35 +38,67 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Product</h4>
             <ul className="space-y-2 text-sm">
-              {/* --- UPDATED LINKS --- */}
-              <li><Link to="/how-it-works" className="hover:text-purple-400 transition-colors duration-300">How it Works</Link></li>
-              <li><Link to="/use-cases" className="hover:text-purple-400 transition-colors duration-300">Use Cases</Link></li>
-              <li><Link to="/offers" className="hover:text-purple-400 transition-colors duration-300">Offers</Link></li>
-              <li><Link to="/#app" className="hover:text-purple-400 transition-colors duration-300">App Preview</Link></li>
+              {/* --- CORRECTED LINKS: Using <Link> component instead of <a> --- */}
+              <li><Link to="/how-it-works" className={linkClasses}>How it Works</Link></li>
+              <li><Link to="/use-cases" className={linkClasses}>Use Cases</Link></li>
+              <li><Link to="/offers" className={linkClasses}>Offers</Link></li>
+              <li><a href="/#app" className={linkClasses}>App Preview</a></li> {/* External/Hash link can remain <a> */}
+              
+              {/* --- CONTACT US FIX --- */}
+              <li><Link to="/contactus" className={linkClasses}>Contact US</Link></li> 
             </ul>
           </div>
+          
+          {/* --- START OF STORE DOWNLOAD SECTION --- */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Company</h4>
-            <ul className="space-y-2 text-sm">
-              {/* --- UPDATED LINKS --- */}
-              <li><Link to="/about" className="hover:text-purple-400 transition-colors duration-300">About</Link></li>
-              <li><Link to="/partnerships" className="hover:text-purple-400 transition-colors duration-300">Partnerships</Link></li>
-              <li><Link to="/support" className="hover:text-purple-400 transition-colors duration-300">Contact</Link></li>
-            </ul>
+            <h4 className="text-white font-semibold mb-4">Available at:</h4>
+            
+            <div className="flex flex-col gap-4">
+              
+              {/* Google Play Button */}
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-md transition duration-200 hover:bg-gray-700 w-full transform hover:scale-[1.02] border-2 border-transparent hover:border-green-400 max-w-[200px]"
+              >
+                <GooglePlayIcon className="w-5 h-5 mr-2 text-green-400" />
+                <div className="text-left">
+                  <p className="text-[10px] opacity-75 leading-none">GET IT ON</p>
+                  <p className="font-semibold text-sm leading-tight">Google Play</p>
+                </div>
+              </a>
+
+              {/* App Store Button */}
+              <a 
+                href="#" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-md transition duration-200 hover:bg-gray-700 w-full transform hover:scale-[1.02] border-2 border-transparent hover:border-blue-400 max-w-[200px]"
+              >
+                <AppleIcon className="w-5 h-5 mr-2 text-blue-400" />
+                <div className="text-left">
+                  <p className="text-[10px] opacity-75 leading-none">Download on the</p>
+                  <p className="font-semibold text-sm leading-tight">App Store</p>
+                </div>
+              </a>
+            </div>
+            
           </div>
+          {/* --- END OF STORE DOWNLOAD SECTION --- */}
+          
           <div>
             <h4 className="text-white font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-sm">
-              {/* --- UPDATED LINKS --- */}
-              <li><Link to="/terms-of-service" className="hover:text-purple-400 transition-colors duration-300">Terms of Service</Link></li>
-              <li><Link to="/privacy-policy" className="hover:text-purple-400 transition-colors duration-300">Privacy Policy</Link></li>
-              <li><Link to="/refund-policy" className="hover:text-purple-400 transition-colors duration-300">Refund Policy</Link></li>
-              <li><Link to="/support" className="hover:text-purple-400 transition-colors duration-300">Help Center</Link></li>
+              {/* --- CORRECTED LINKS: Using <Link> component instead of <a> --- */}
+              <li><Link to="/terms-of-service" className={linkClasses}>Terms of Service</Link></li>
+              <li><Link to="/privacy-policy" className={linkClasses}>Privacy Policy</Link></li>
+              <li><Link to="/refund-policy" className={linkClasses}>Refund Policy</Link></li>
+              <li><Link to="/support" className={linkClasses}>Help Center</Link></li>
             </ul>
           </div>
         </div>
         <div className="border-t border-gray-800 pt-8 text-center text-sm">
-           {/* --- BRANDING CHANGE --- */}
           <p>&copy; 2025 iPrep IELTS</p>
         </div>
       </div>

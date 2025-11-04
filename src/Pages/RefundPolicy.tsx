@@ -46,7 +46,7 @@ const RefundPolicy: React.FC = () => {
 
           <h2 className="text-3xl font-bold text-purple-700 mb-6 mt-10">3. How to Request a Refund</h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
-            To request a refund, you must contact our support team within 7 days of the purchase. Please email <a href="mailto:support@iprepielts.com" className="text-purple-600 hover:underline font-medium">support@iprepielts.com</a> with your account email, order number, and a detailed reason for the request.
+            To request a refund, you must contact our support team within 7 days of the purchase. Please email <a href="" className="text-purple-600 hover:underline font-medium"></a> with your account email, order number, and a detailed reason for the request.
           </p>
 
           

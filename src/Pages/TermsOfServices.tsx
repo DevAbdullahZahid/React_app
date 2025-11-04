@@ -94,7 +94,7 @@ const TermsOfService: React.FC = () => {
           <h2 className="text-3xl font-bold text-purple-700 mb-6 mt-10">10. Contact Information</h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
              {/* --- BRANDING CHANGE --- */}
-            Should you have any questions or require clarification regarding these Terms of Service, please do not hesitate to contact us at <a href="mailto:support@iprepielts.com" className="text-purple-600 hover:underline font-medium">support@iprepielts.com</a>.
+            Should you have any questions or require clarification regarding these Terms of Service, please do not hesitate to contact us at <a href="" className="text-purple-600 hover:underline font-medium"></a>.
           </p>
 
           

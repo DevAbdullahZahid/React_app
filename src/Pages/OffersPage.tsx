@@ -4,9 +4,9 @@ import { CheckCircle, ArrowRight } from 'lucide-react';
 const OffersPage: React.FC = () => {
   const plans = [
     {
-      name: 'Free Trial',
+      name: 'Free',
       price: '$0',
-      duration: '/ 7 days',
+      duration: '',
       description: 'Get a taste of all features, no credit card required.',
       features: [
         'Access to all 4 modules',
@@ -14,7 +14,7 @@ const OffersPage: React.FC = () => {
         '2 AI Speaking evaluations',
         'Limited mock tests'
       ],
-      buttonText: 'Start Free Trial',
+      buttonText: 'Start Free',
       isPopular: false
     },
     {
