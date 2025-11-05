@@ -153,14 +153,7 @@ const ContactForm = () => {
 
 // Contact Info Block Component
 const ContactInfo = () => {
-  const infoItems = [
-    
-    { 
-      icon: MapPin, 
-      title: 'Office', 
-      detail: '123 IELTS Avenue, Learning City, LSC 90210' 
-    },
-  ];
+  
 
   return (
     <div className="p-8 lg:p-12 bg-purple-700 rounded-2xl shadow-xl text-white h-full flex flex-col justify-center">
@@ -169,25 +162,7 @@ const ContactInfo = () => {
         We're here to help you achieve your target band score. Feel free to reach out with any questions.
       </p>
       
-      <div className="space-y-8">
-        {infoItems.map((item, index) => (
-          <div key={index} className="flex items-start space-x-4">
-            <div className="p-3 bg-purple-600 rounded-full flex-shrink-0 shadow-lg">
-              <item.icon className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <p className="text-lg font-semibold mb-1">{item.title}</p>
-              {item.link ? (
-                <a href={item.link} className="text-purple-100 hover:text-white transition-colors">
-                  {item.detail}
-                </a>
-              ) : (
-                <p className="text-purple-100">{item.detail}</p>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
+     
     </div>
   );
 };

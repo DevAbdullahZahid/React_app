@@ -103,6 +103,7 @@ const Footer: React.FC = () => {
               <li><Link to="/privacy-policy" className={linkClasses}>Privacy Policy</Link></li>
               <li><Link to="/refund-policy" className={linkClasses}>Refund Policy</Link></li>
               <li><Link to="/support" className={linkClasses}>Help Center</Link></li>
+              <li><Link to="/disclaimer" className={linkClasses}>Disclaimer</Link></li>
             </ul>
           </div>
         </div>
