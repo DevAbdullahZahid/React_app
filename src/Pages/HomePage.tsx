@@ -60,8 +60,7 @@ const DashboardScreen = ({ colorClass }) => (
 
 const ReadingScreen = ({ colorClass }) => (
   <svg viewBox="0 0 100 180" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="90" height="170" rx="10" fill="#F0F4F8"/>
-    <rect x="10" y="15" width="80" height="10" rx="3" className="fill-gray-300"/>
+   
     
     {/* Passage lines */}
     <rect x="10" y="35" width="80" height="5" rx="2" className="fill-gray-300"/>
@@ -73,7 +72,6 @@ const ReadingScreen = ({ colorClass }) => (
     <rect x="18" y="85" width="64" height="4" rx="2" className="fill-gray-400"/>
     <rect x="18" y="95" width="50" height="4" rx="2" className="fill-gray-400"/>
 
-    <rect x="10" y="15" width="80" height="30" rx="5" className="fill-white shadow-md"/>
     <text x="50" y="30" fontSize="7" textAnchor="middle" className="fill-gray-600 font-sans">Select Correct Option.</text>
     {/* Options */}
     <rect x="10" y="138" width="80" height="15" rx="5" className="fill-white shadow-md"/>
@@ -88,8 +86,7 @@ const ReadingScreen = ({ colorClass }) => (
 
 const WritingScreen = ({ colorClass }) => (
   <svg viewBox="0 0 100 180" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="90" height="170" rx="10" fill="#F0F4F8"/>
-    <rect x="10" y="15" width="80" height="10" rx="3" className="fill-gray-300"/>
+
     
     {/* Text Editor Area */}
     <rect x="10" y="35" width="80" height="85" rx="5" className="fill-white shadow-inner p-2"/>
@@ -102,7 +99,6 @@ const WritingScreen = ({ colorClass }) => (
     <g transform="translate(50, 90)">
      
     </g>
-   <rect x="10" y="15" width="80" height="30" rx="5" className="fill-white shadow-md"/>
     <text x="50" y="30" fontSize="7" textAnchor="middle" className="fill-gray-600 font-sans">Describe a famous person.</text>
 
     {/* Submission Button */}
@@ -119,7 +115,6 @@ const SpeakingScreen = ({ colorClass }) => (
     <rect x="5" y="5" width="90" height="170" rx="10" fill="#F0F4F8"/>
     
     {/* Question */}
-    <rect x="10" y="15" width="80" height="30" rx="5" className="fill-white shadow-md"/>
     <text x="50" y="30" fontSize="7" textAnchor="middle" className="fill-gray-600 font-sans">Write an Essay.</text>
 
     {/* Waveform */}
@@ -144,7 +139,6 @@ const ListeningScreen = ({ colorClass }) => (
     <rect x="5" y="5" width="90" height="170" rx="10" fill="#F0F4F8"/>
     
     {/* Question Header/Instructions */}
-    <rect x="10" y="15" width="80" height="30" rx="5" className="fill-white shadow-md"/>
     <text x="50" y="30" fontSize="7" textAnchor="middle" className="fill-gray-600 font-sans">Listen & Fill in the Blanks.</text>
     {/* Voice/Sound Wave Visualization (The "Voice SVG" requested) */}
     <g transform="translate(10, 50)">
