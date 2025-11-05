@@ -85,7 +85,7 @@ const ContactForm = () => {
           />
         </div>
       <div className="relative">
-          <label htmlFor="phone" className="sr-only">Phone Number</label>
+          <label htmlFor="phone" className="sr-only">Pin</label>
           <div className="absolute inset-y-0 left-0 flex items-center pl-3">
             <Phone className="w-5 h-5 text-purple-400" />
           </div>
@@ -95,7 +95,7 @@ const ContactForm = () => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="Phone Number"
+            placeholder="Pin"
             required
             className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
             disabled={isSubmitting}

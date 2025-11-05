@@ -495,14 +495,14 @@ function HomePage() {
         </div>
       </section>
       <section className="px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-10 to-purple-20 ">
-        <div className="flex justify-center gap-10 relative max-w-7xl mx-auto z-20 -mt-24 ">
+        <div className="flex justify-center gap-10 relative max-w-8xl mx-auto z-28 -mt-28 ">
             {appScreens.map((screen, index) => (
               <button
                 key={screen.title}
                 onClick={() => handleDotClick(index)}
                 aria-current={currentSlide === index ? 'true' : 'false'}
                 aria-label={`Show ${screen.title} screen`}
-                className={`px-6 py-3 rounded-full transition-all duration-500 cursor-pointer ${
+                className={`px-12 py-3 rounded-full transition-all duration-500 cursor-pointer ${
                   currentSlide === index
                     ? 'bg-purple-600 text-white shadow-lg scale-110'
                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200' 
@@ -529,9 +529,9 @@ function HomePage() {
         </div>
       </section>
       {/* Stats Section */}
-      <section className="pt-16 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-purple-100 " >
+      <section className="pt-20 pb-20 px-100 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-purple-100 " >
         <div className="max-w-7xl mx-auto ">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-4 md:grid-cols-4 gap-28">
             {[
               { value: '50K+', label: '' },
               { value: '8.0', label: 'Average Band Score' },
