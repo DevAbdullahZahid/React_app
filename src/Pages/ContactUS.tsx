@@ -6,6 +6,7 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -25,7 +26,7 @@ const ContactForm = () => {
     setTimeout(() => {
       console.log('Form Submitted:', formData);
       setIsSubmitting(false);
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '',phone:'', message: '' });
       setStatus('Thank you! Your message has been sent successfully.');
       setTimeout(() => setStatus(''), 5000); // Clear status after 5 seconds
     }, 1500);
@@ -78,6 +79,23 @@ const ContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             placeholder="Email Address"
+            required
+            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+            disabled={isSubmitting}
+          />
+        </div>
+      <div className="relative">
+          <label htmlFor="phone" className="sr-only">Phone Number</label>
+          <div className="absolute inset-y-0 left-0 flex items-center pl-3">
+            <Phone className="w-5 h-5 text-purple-400" />
+          </div>
+          <input
+            type="phone"
+            id="phone"
+            name="phone"
+            value={formData.phone}
+            onChange={handleChange}
+            placeholder="Phone Number"
             required
             className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
             disabled={isSubmitting}

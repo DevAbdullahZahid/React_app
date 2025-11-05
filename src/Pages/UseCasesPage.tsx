@@ -10,12 +10,7 @@ import {
 const UseCasesPage: React.FC = () => {
   // This content is taken from your original HomePage.tsx "features" section
   const features = [
-    {
-      icon: Brain,
-      title: 'Smart Learning',
-      description: 'Go beyond standard plans. Our AI-driven platform creates personalized study roadmaps that adapt in real-time to your unique pace and skill level, ensuring maximum efficiency.'
-    },
-    {
+     {
       icon: BookOpen,
       title: 'Module Coverage',
       description: 'Get complete, expert-designed preparation across all sections: Reading, Writing, Listening, and Speaking. We build your proficiency in every skill required for test day.'
@@ -26,15 +21,22 @@ const UseCasesPage: React.FC = () => {
       description: 'Engage with real-time exercises and receive instant, detailed feedback. Learn immediately from your mistakes and accelerate your understanding with guided corrections.'
     },
     {
-      icon: BarChart,
-      title: 'Progress Analytics',
-      description: 'Detailed insights to track your improvement over time'
+      icon: Brain,
+      title: 'Smart Learning',
+      description: 'Go beyond standard plans. Our AI-driven platform creates personalized study roadmaps that adapt in real-time to your unique pace and skill level, ensuring maximum efficiency.'
     },
+   
     {
       icon: Award,
       title: 'Mock Tests',
       description: 'Gain clarity with detailed, visual reports that track your improvement over time. See exactly where you excel and where you need to focus your efforts for targeted study.'
     },
+    {
+      icon: BarChart,
+      title: 'Progress Analytics',
+      description: 'Detailed insights to track your improvement over time'
+    },
+    
     {
       icon: Award, 
       title: 'For Educators',
