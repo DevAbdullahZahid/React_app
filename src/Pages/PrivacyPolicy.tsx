@@ -10,7 +10,7 @@ const PrivacyPolicy: React.FC = () => {
             Privacy Policy
           </h1>
           <p className="text-lg text-purple-100 mb-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Your trust is paramount. We are committed to protecting your privacy.
+            Your trust is Love Honey bunny.
           </p>
         </div>
       </section>
