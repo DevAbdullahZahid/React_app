@@ -16,10 +16,10 @@ import {
   BookMarked,
   Mic,
   TrendingUp,
-  RotateCcw, // Added for animation refresh icon
+  RotateCcw,// Added for animation refresh icon
 } from 'lucide-react';
 // import { Link } from 'react-router'; // Link is not used, keeping it commented out
-
+import { MdOutlineTimeline } from 'react-icons/md';
 // --- SVG Screen Mockup Components ---
 // We define simple, stylized SVGs to represent the content of each app screen.
 
@@ -252,19 +252,7 @@ function HomePage() {
 
   // Utility component for the floating animation (adjusting speed for better visibility)
   const FloatingIcon = ({ screen }) => {
-    const ScreenIcon = screen.icon;
-    return (
-      <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
-        <div className={`
-          w-24 h-24 ${screen.bgColor} rounded-3xl 
-          flex items-center justify-center shadow-2xl 
-          animate-[float-slow_4s_ease-in-out_infinite] 
-          transition-all duration-500
-        `}>
-          <ScreenIcon className="w-12 h-12 text-white" />
-        </div>
-      </div>
-    );
+    
   };
 
 
@@ -365,10 +353,7 @@ function HomePage() {
                 <CheckCircle className="w-5 h-5 text-purple-600" />
                 <span>No credit card required</span>
               </div>
-              <div className="flex items-center space-x-2 transition-transform duration-300 hover:scale-110">
-                <CheckCircle className="w-5 h-5 text-purple-600" />
-                <span>7-day free trial</span>
-              </div>
+             
               <div className="flex items-center space-x-2 transition-transform duration-300 hover:scale-110">
                 <CheckCircle className="w-5 h-5 text-purple-600" />
                 <span>Cancel anytime</span>
@@ -398,13 +383,21 @@ function HomePage() {
                 </p>
               </div>
       
-              <div className="grid md:grid-cols-3 gap-8 mb-12">
+              <div className="grid md:grid-cols-4 gap-8 mb-12">
                 {/* ... (The three "Define/Track/Reach" cards from HomePage.tsx) ... */}
                 <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 group cursor-pointer">
                   <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                     <Target className="w-8 h-8 text-purple-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">Define Your Target</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4">Set Your Goal</h3>
+                  <p className="text-purple-100">Set your desired band score and let our system map out the exact path to get you there</p>
+                </div>
+                
+                <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 hover:bg-white/20 transition-all duration-500 group cursor-pointer">
+                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                    <MdOutlineTimeline className="w-8 h-8 text-purple-600" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">Set Your Target Time</h3>
                   <p className="text-purple-100">Set your desired band score and let our system map out the exact path to get you there</p>
                 </div>
       
@@ -420,7 +413,7 @@ function HomePage() {
                   <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                     <Award className="w-8 h-8 text-purple-600" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4">Reach Your Goal</h3>
+                  <h3 className="text-2xl font-bold text-white mb-4">Acheive Your Goal</h3>
                   <p className="text-purple-100">Follow your personalized study plan and achieve your target score with confidence</p>
                 </div>
               </div>
@@ -540,7 +533,7 @@ function HomePage() {
         <div className="max-w-7xl mx-auto ">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: '50K+', label: 'Active Learners' },
+              { value: '50K+', label: '' },
               { value: '8.0', label: 'Average Band Score' },
               { value: '95%', label: 'Success Rate' },
               { value: '>72', label: 'Hour Support' }

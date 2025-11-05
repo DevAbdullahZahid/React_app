@@ -31,9 +31,17 @@ const Footer: React.FC = () => {
               </div>
               <span className="text-white font-bold">iPrep IELTS</span>
             </div>
-            <p className="text-sm">
+            <p className="text-sm pb-10">
               Intelligent IELTS preparation platform for achieving your dream score.
             </p>
+            
+             <li>
+               <Link 
+                to="/contactus" 
+                  className={`
+                    ${linkClasses} bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-300 inline-flex items-center justify-center font-medium `}>Contact us</Link>
+                </li>
+            
           </div>
           <div>
             <h4 className="text-white font-semibold mb-4">Product</h4>
@@ -45,7 +53,7 @@ const Footer: React.FC = () => {
               <li><a href="/#app" className={linkClasses}>App Preview</a></li> {/* External/Hash link can remain <a> */}
               
               {/* --- CONTACT US FIX --- */}
-              <li><Link to="/contactus" className={linkClasses}>Contact US</Link></li> 
+              
             </ul>
           </div>
           
