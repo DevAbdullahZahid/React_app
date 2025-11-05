@@ -20,16 +20,21 @@ const UseCasesPage: React.FC = () => {
       title: 'Interactive Practice',
       description: 'Engage with real-time exercises and receive instant, detailed feedback. Learn immediately from your mistakes and accelerate your understanding with guided corrections.'
     },
+     {
+      icon: Award,
+      title: 'Mock Tests',
+      description: 'Gain clarity with detailed, visual reports that track your improvement over time. See exactly where you excel and where you need to focus your efforts for targeted study.'
+    },
     {
       icon: Brain,
       title: 'Smart Learning',
       description: 'Go beyond standard plans. Our AI-driven platform creates personalized study roadmaps that adapt in real-time to your unique pace and skill level, ensuring maximum efficiency.'
     },
    
-    {
-      icon: Award,
-      title: 'Mock Tests',
-      description: 'Gain clarity with detailed, visual reports that track your improvement over time. See exactly where you excel and where you need to focus your efforts for targeted study.'
+   {
+      icon: Award, 
+      title: 'For Educators',
+      description: 'Experience full-length practice exams that perfectly simulate real test conditions, format, and timing. Build confidence and stamina to eliminate test-day anxiety.'
     },
     {
       icon: BarChart,
@@ -37,11 +42,7 @@ const UseCasesPage: React.FC = () => {
       description: 'Detailed insights to track your improvement over time'
     },
     
-    {
-      icon: Award, 
-      title: 'For Educators',
-      description: 'Experience full-length practice exams that perfectly simulate real test conditions, format, and timing. Build confidence and stamina to eliminate test-day anxiety.'
-    },
+    
     
   ];
 
