@@ -323,7 +323,7 @@ function HomePage() {
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight animate-fade-in">
               Master IELTS with
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-purple-800 animate-gradient">
-                Intelligent Learning
+                Intelligent Learning with iPrep Ietls
               </span>
             </h1>
 
