@@ -20,8 +20,16 @@ const RefundPolicy: React.FC = () => {
         <div className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-2xl animate-fade-in" style={{ animationDelay: '0.4s' }}>
           
           <p className="text-gray-700 mb-6 leading-relaxed">
-            Welcome to iPrep IELTS. We strive to provide the best learning experience. This policy outlines the terms under which refunds may be granted.
-          </p>
+           At iPrep Ielts, we want you to have a smooth and satisfying learning experience.
+
+If you’ve purchased a premium plan but have not used any premium features, you are eligible for a full refund.
+Refunds can be requested directly through the app within the specified refund window.
+
+Once a premium feature (such as advanced AI feedback, speaking evaluation, or premium content access) has been used, the payment becomes non-refundable.
+
+We encourage you to review all features before making a purchase to ensure our service meets your expectations.
+
+If you face any issue, our support team is always ready to help.  ya likhna ha jesa acha laga add kar da refund page main</p>
 
           <h2 className="text-3xl font-bold text-purple-700 mb-6 mt-10">1. General Policy</h2>
           <p className="text-gray-700 mb-6 leading-relaxed">

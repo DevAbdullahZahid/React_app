@@ -21,7 +21,7 @@ const SupportPage: React.FC = () => {
           
           <h2 className="text-3xl font-bold text-purple-700 mb-6 mt-10">Contact Us</h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
-            Have a question or running into an issue? The best way to reach us is by email. Our support team is available 24/7 to assist you.
+            Have a question or running into an issue? The best way to reach us is by email. Our support team will respond in 72 hours to assist you.
             <a href="/contactus" className="flex items-center justify-center bg-purple-600 text-white font-semibold text-base py-3 px-6 rounded-lg  shadow-lg hover:bg-purple-700 transition duration-300 transform hover:scale-[1.02]">Start a Conversation</a>
           
           </p>

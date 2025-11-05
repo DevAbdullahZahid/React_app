@@ -59,6 +59,7 @@ const Header: React.FC = () => {
                 <Link to="/terms-of-service" className="block px-4 py-2 text-gray-700 hover:bg-purple-50 rounded-t-xl">Terms of Service</Link>
                 <Link to="/privacy-policy" className="block px-4 py-2 text-gray-700 hover:bg-purple-50">Privacy Policy</Link>
                 <Link to="/refund-policy" className="block px-4 py-2 text-gray-700 hover:bg-purple-50 rounded-b-xl">Refund Policy</Link>
+                <Link to="/disclaimer" className="block px-4 py-2 text-gray-700 hover:bg-purple-50 rounded-b-xl">Disclaimer</Link>
               </div>
             </div>
             
@@ -101,6 +102,7 @@ const Header: React.FC = () => {
                 <Link to="/terms-of-service" className="block text-gray-700 hover:text-purple-600 transition-all duration-300 py-1" onClick={handleMobileNavLinkClick}>Terms of Service</Link>
                 <Link to="/privacy-policy" className="block text-gray-700 hover:text-purple-600 transition-all duration-300 py-1" onClick={handleMobileNavLinkClick}>Privacy Policy</Link>
                 <Link to="/refund-policy" className="block text-gray-700 hover:text-purple-600 transition-all duration-300 py-1" onClick={handleMobileNavLinkClick}>Refund Policy</Link>
+                <Link to="/disclaimer" className="block text-gray-700 hover:text-purple-600 transition-all duration-300 py-1" onClick={handleMobileNavLinkClick}>Disclaimer</Link>
               </div>
             </details>
 

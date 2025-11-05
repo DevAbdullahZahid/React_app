@@ -183,7 +183,7 @@ const ContactUsPage = () => {
         <div className="max-w-7xl py-30 mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-extrabold mb-3">Contact Our Team</h1>
           <p className="text-xl text-purple-200">
-            We are available 24/7 to answer your questions about courses, exams, and support.
+            We will respond to answer your questions within 72 hours about courses, exams, and support.
           </p>
         </div>
       </header>
@@ -222,3 +222,4 @@ const App = () => {
 };
 
 export default App;
+
