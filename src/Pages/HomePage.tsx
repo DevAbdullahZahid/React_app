@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 // import { Link } from 'react-router'; // Link is not used, keeping it commented out
 import { MdOutlineTimeline } from 'react-icons/md';
+
 // --- SVG Screen Mockup Components ---
 // We define simple, stylized SVGs to represent the content of each app screen.
 
@@ -58,80 +59,244 @@ const DashboardScreen = ({ colorClass }) => (
   </svg>
 );
 
-const ReadingScreen = ({ colorClass }) => (
-  <svg viewBox="0 0 100 180" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-   
-    
-    {/* Passage lines */}
-    <rect x="10" y="35" width="80" height="5" rx="2" className="fill-gray-300"/>
-    <rect x="10" y="45" width="75" height="5" rx="2" className="fill-gray-300"/>
-    <rect x="10" y="55" width="80" height="5" rx="2" className="fill-gray-300"/>
-    
-    {/* Question Box */}
-    <rect x="10" y="75" width="80" height="55" rx="8" className="fill-white shadow-md"/>
-    <rect x="18" y="85" width="64" height="4" rx="2" className="fill-gray-400"/>
-    <rect x="18" y="95" width="50" height="4" rx="2" className="fill-gray-400"/>
+// Find and replace the existing ReadingScreen component with this:
+const question = {
+  passage:
+    "In recent years, the number of people working remotely has increased dramatically. Studies suggest that remote work can improve productivity and reduce commuting stress, but it may also lead to feelings of isolation and difficulty separating work from personal life.",
+  questionText: "According to the passage, what is one possible disadvantage of remote work?",
+  options: [
+    "A) It makes employees more productive and focused.",
+    "B) It can cause feelings of isolation and blurred work-life boundaries."
+  ],
+  correctAnswer: "B",
+};
 
-    <text x="50" y="30" fontSize="7" textAnchor="middle" className="fill-gray-600 font-sans">Select Correct Option.</text>
-    {/* Options */}
-    <rect x="10" y="138" width="80" height="15" rx="5" className="fill-white shadow-md"/>
-    <rect x="18" y="143" width="5" height="5" rx="2" className="fill-gray-300"/>
-    <text x="30" y="149" fontSize="6" className="fill-gray-600 font-sans">Option A</text>
+interface ReadingScreenProps {
+  colorClass: string;
+}
 
-    <rect x="10" y="158" width="80" height="15" rx="5" className={`fill-current ${colorClass} opacity-80 shadow-md`}/>
-    <rect x="18" y="163" width="5" height="5" rx="2" className="fill-white"/>
-    <text x="30" y="169" fontSize="6" className="fill-white font-sans font-bold">Option B (Selected)</text>
-  </svg>
-);
+const ReadingScreen: React.FC<ReadingScreenProps> = ({ colorClass }) => {
+  const question = {
+    passage:
+      "Remote work has grown fast but can feel isolating.",
+    questionText: "What issue may remote workers face?",
+    options: [
+      { text: "A) Feeling lonely", isCorrect: true },
+      { text: "B) Saving more time", isCorrect: false },
+    ],
+  };
 
-const WritingScreen = ({ colorClass }) => (
-  <svg viewBox="0 0 100 180" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+  return (
+    <div className="flex items-start justify-center h-full py-6 bg-transparent">
+      <div className="bg-white rounded-2xl shadow-lg p-5 w-[350px] border border-gray-200">
+        {/* Header */}
+        <div className="bg-gray-100 rounded-lg py-1.5 text-center mb-3">
+          <h2 className="text-gray-700 font-semibold text-sm">Reading Task</h2>
+        </div>
 
-    
-    {/* Text Editor Area */}
-    <rect x="10" y="35" width="80" height="85" rx="5" className="fill-white shadow-inner p-2"/>
-    <rect x="15" y="45" width="70" height="4" rx="2" className="fill-gray-400"/>
-    <rect x="15" y="55" width="60" height="4" rx="2" className="fill-gray-400"/>
-    <rect x="15" y="65" width="70" height="4" rx="2" className="fill-gray-400"/>
-    <rect x="15" y="75" width="50" height="4" rx="2" className="fill-gray-400"/>
-    
-    {/* Feedback Bubble */}
-    <g transform="translate(50, 90)">
-     
-    </g>
-    <text x="50" y="30" fontSize="7" textAnchor="middle" className="fill-gray-600 font-sans">Describe a famous person.</text>
+        {/* Passage */}
+        <p className="text-gray-600 text-sm mb-4 text-justify leading-relaxed">
+          {question.passage}
+        </p>
 
-    {/* Submission Button */}
-    <rect x="10" y="135" width="80" height="15" rx="7" className={`fill-current ${colorClass} opacity-90 shadow-md`}/>
-    <text x="50" y="145" fontSize="7" textAnchor="middle" className="fill-white font-sans font-bold">Submit Essay</text>
+        {/* Question */}
+        <p className="text-gray-800 font-medium text-sm mb-3">
+          {question.questionText}
+        </p>
 
-    {/* Word Count */}
-    <text x="50" y="165" fontSize="6" textAnchor="middle" className="fill-gray-500 font-sans">Word Count: 185/250</text>
-  </svg>
-);
+        {/* Options (Static Display) */}
+        <div className="space-y-2">
+          {question.options.map((opt, index) => (
+            <div
+              key={index}
+              className={`w-full border rounded-lg py-2 px-3 text-left text-sm ${
+                opt.isCorrect
+                  ? "bg-green-100 text-green-700 border-green-300"
+                  : "bg-red-100 text-red-700 border-red-300"
+              }`}
+            >
+              {opt.text}
+            </div>
+          ))}
+        </div>
 
-const SpeakingScreen = ({ colorClass }) => (
-  <svg viewBox="0 0 100 180" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="5" width="90" height="170" rx="10" fill="#F0F4F8"/>
-    
-    {/* Question */}
-    <text x="50" y="30" fontSize="7" textAnchor="middle" className="fill-gray-600 font-sans">Write an Essay.</text>
+        {/* Feedback (Static) */}
+        
+      </div>
+    </div>
+  );
+};
 
-    {/* Waveform */}
-    <g transform="translate(10, 70)">
-      <rect x="0" y="0" width="80" height="30" rx="5" className="fill-white shadow-md"/>
-      <path d="M 5 15 Q 20 5 40 15 Q 60 25 75 15" strokeWidth="2" strokeLinecap="round" className={`stroke-current ${colorClass} opacity-80`} />
-      <path d="M 5 15 Q 20 25 40 15 Q 60 5 75 15" strokeWidth="2" strokeLinecap="round" className={`stroke-current ${colorClass} opacity-80`} />
-    </g>
 
-    {/* Mic Button */}
-    <circle cx="50" cy="135" r="20" className={`fill-current ${colorClass} opacity-90 shadow-xl`}/>
-    <Mic x="40" y="125" size="20" strokeWidth="2" className="text-white"/>
-    
-    {/* Time */}
-    <text x="50" y="165" fontSize="7" textAnchor="middle" className="fill-gray-500 font-sans">Recording... (0:45)</text>
-  </svg>
-);
+
+interface WritingScreenProps {
+  colorClass: string;
+}
+
+const WritingScreen: React.FC<WritingScreenProps> = ({ colorClass }) => {
+  const fullText =
+    "Albert Einstein was one of the greatest scientists in history. His theory of relativity changed how we understand space, time, and gravity. Despite his fame, he lived simply and believed deeply in peace and curiosity.";
+
+  const [displayedText, setDisplayedText] = useState("");
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      setDisplayedText((prev) => prev + fullText[index]);
+      index++;
+      if (index >= fullText.length) clearInterval(interval);
+    }, 35);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="flex items-start justify-center h-full py-6 bg-transparent">
+      <div className="bg-white rounded-2xl shadow-lg p-4 w-[330px] border border-gray-200">
+        {/* Header */}
+        <div className="bg-gray-100 rounded-lg py-1.5 text-center mb-2">
+          <h2 className="text-gray-700 fill-gray-700 font-sans font-semibold">Writing Task</h2>
+        </div>
+
+        {/* Prompt */}
+        <p className="text-gray-600 text-center text-sm mb-3">
+          Describe a famous person.
+        </p>
+
+        {/* Typing Box */}
+        <div className="bg-gray-50 border border-gray-300 rounded-lg p-2 h-44 overflow-y-auto text-sm text-gray-700 leading-relaxed">
+          {displayedText}
+          <span className="animate-blink">|</span>
+        </div>
+
+        {/* Submit Button */}
+        <button
+          className={`mt-4 w-full py-2 rounded-lg text-gray font-semibold shadow-md ${colorClass}`}
+        >
+          Submit Essay
+        </button>
+
+        {/* Word Count */}
+        <p className="text-center text-gray-500 text-xs mt-2">
+          Word Count: 185 / 250
+        </p>
+      </div>
+
+      {/* Blinking Cursor Animation */}
+      <style>{`
+        @keyframes blink {
+          50% { opacity: 0; }
+        }
+        .animate-blink {
+          animation: blink 1s step-start infinite;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+
+
+
+
+interface SpeakingScreenProps {
+  colorClass: string;
+}
+
+const SpeakingScreen: React.FC<SpeakingScreenProps> = ({ colorClass }) => {
+  const fullText =
+    "My favorite hobby is reading books. It helps me relax, learn new things, and explore different perspectives on life.";
+
+  const [displayedText, setDisplayedText] = useState("");
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      setDisplayedText((prev) => prev + fullText[index]);
+      index++;
+      if (index >= fullText.length) clearInterval(interval);
+    }, 40);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="flex items-center justify-center h-full bg-transparent">
+      <svg
+        viewBox="0 0 100 180"
+        className="w-full h-full"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* Screen Background */}
+        <rect x="5" y="5" width="90" height="170" rx="10" fill="#F9FAFB" />
+
+        {/* Question */}
+        <text
+          x="50"
+          y="30"
+          fontSize="7"
+          textAnchor="middle"
+          className="fill-gray-700 font-sans font-semibold"
+        >
+          Tell us about your hobbies.
+        </text>
+
+        {/* Animated Response Area */}
+        <foreignObject x="10" y="60" width="80" height="50">
+          <div
+            xmlns="http://www.w3.org/1999/xhtml"
+            style={{
+              background: "white",
+              borderRadius: "6px",
+              boxShadow: "inset 0 0 4px rgba(0,0,0,0.1)",
+              padding: "4px",
+              fontSize: "7px",
+              color: "#374151",
+              fontFamily: "sans-serif",
+              lineHeight: "1.4",
+              textAlign: "justify",
+              whiteSpace: "pre-wrap",
+            }}
+          >
+            {displayedText}
+            <span style={{ animation: "blink 1s step-start infinite" }}>|</span>
+          </div>
+        </foreignObject>
+
+        {/* Mic Button */}
+        <g transform="translate(50,135)">
+          <circle
+            r="20"
+            className={`fill-current ${colorClass} opacity-90 shadow-xl animate-pulse`}
+          />
+          <Mic
+            x="-10"
+            y="-10"
+            size="20"
+            strokeWidth="2"
+            className="text-white"
+          />
+        </g>
+
+        {/* Timer */}
+        <text
+          x="50"
+          y="168"
+          fontSize="7"
+          textAnchor="middle"
+          className="fill-gray-500 font-sans"
+        >
+          Recording... (0:45)
+        </text>
+      </svg>
+
+      <style>{`
+        @keyframes blink {
+          50% { opacity: 0; }
+        }
+      `}</style>
+    </div>
+  );
+};
 
 // The updated Listening Screen with Voice SVG
 const ListeningScreen = ({ colorClass }) => (
@@ -139,7 +304,7 @@ const ListeningScreen = ({ colorClass }) => (
     <rect x="5" y="5" width="90" height="170" rx="10" fill="#F0F4F8"/>
     
     {/* Question Header/Instructions */}
-    <text x="50" y="30" fontSize="7" textAnchor="middle" className="fill-gray-600 font-sans">Listen & Fill in the Blanks.</text>
+    <text x="50" y="30" fontSize="7" textAnchor="middle" className="fill-gray-700 font-sans font-semibold">Listen & Fill in the Blanks.</text>
     {/* Voice/Sound Wave Visualization (The "Voice SVG" requested) */}
     <g transform="translate(10, 50)">
       <rect x="0" y="0" width="80" height="50" rx="5" className={`fill-current ${colorClass} opacity-90 shadow-lg`}/>
@@ -155,8 +320,7 @@ const ListeningScreen = ({ colorClass }) => (
       <rect x="66" y="30" width="4" height="5" rx="1" className="fill-white"/>
       
       {/* Headphones Icon */}
-      <Headphones x="72" y="20" size="10" className="text-white"/>
-    </g>
+        </g>
 
     {/* Question and options/Answer Area */}
     <rect x="10" y="110" width="80" height="55" rx="8" className="fill-white shadow-md"/>
@@ -186,6 +350,14 @@ function HomePage() {
       ScreenComponent: DashboardScreen,
     },
     {
+      title: 'Writing Module',
+      description: 'Essay evaluation and feedback',
+      icon: PenTool,
+      color: 'from-green-500 to-green-700',
+      bgColor: 'bg-green-600',
+      ScreenComponent: WritingScreen,
+    },
+    {
       title: 'Reading Practice',
       description: 'Interactive passages with instant feedback',
       icon: BookMarked,
@@ -193,13 +365,15 @@ function HomePage() {
       bgColor: 'bg-blue-600',
       ScreenComponent: ReadingScreen,
     },
+    
+    
     {
-      title: 'Writing Module',
-      description: 'Essay evaluation and feedback',
-      icon: PenTool,
-      color: 'from-green-500 to-green-700',
-      bgColor: 'bg-green-600',
-      ScreenComponent: WritingScreen,
+      title: 'Listening Tests',
+      description: 'Comprehensive audio exercises',
+      icon: Headphones,
+      color: 'from-pink-500 to-pink-700',
+      bgColor: 'bg-pink-600',
+      ScreenComponent: ListeningScreen,
     },
     {
       title: 'Speaking Practice',
@@ -209,14 +383,7 @@ function HomePage() {
       bgColor: 'bg-orange-600',
       ScreenComponent: SpeakingScreen,
     },
-    {
-      title: 'Listening Tests',
-      description: 'Comprehensive audio exercises',
-      icon: Headphones,
-      color: 'from-pink-500 to-pink-700',
-      bgColor: 'bg-pink-600',
-      ScreenComponent: ListeningScreen,
-    }
+    
   ];
 
   const totalSlides = appScreens.length;
@@ -286,32 +453,52 @@ function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Custom Keyframe Animation for the floating effect */}
-      <style>
-        {`
-        @keyframes float-slow {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-        .animate-float-slow {
-          animation: float-slow 4s ease-in-out infinite;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .animate-fade-in {
-            animation: fadeInUp 0.8s ease-out both;
-        }
+      // ... inside HomePage function, inside return ...
+<style>
+    {`
+    @keyframes float-slow {
+        /* ... existing keyframes ... */
+    }
+    .animate-float-slow {
+        /* ... existing classes ... */
+    }
+    
+    @keyframes fadeInUp {
+        /* ... existing keyframes ... */
+    }
+    .animate-fade-in {
+        /* ... existing classes ... */
+    }
 
-        `}
-      </style>
+    /* --- 1. STAGGERED PHONE ENTRANCE ANIMATION (New) --- */
+    @keyframes slideUpBounce {
+        0% { transform: translateY(100px); opacity: 0; }
+        60% { transform: translateY(-10px); opacity: 1; }
+        100% { transform: translateY(0); opacity: 1; }
+    }
+    .phone-slide-in {
+        animation: slideUpBounce 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; /* ease-out-back */
+    }
+
+    /* --- 2. DYNAMIC SVG ANIMATIONS (New) --- */
+
+    /* Dashboard Ring Fill */
+    @keyframes ringDraw {
+        to {
+            /* The 471 value is the circumference of the circle (2 * PI * 75) to start fully hidden */
+            /* We will calculate the final offset dynamically in the component */
+            stroke-dashoffset: 141; /* This value is a placeholder, calculated properly below */
+        }
+    }
+    
+    /* Listening Screen Bar Pulse */
+    @keyframes barPulse {
+        0%, 100% { transform: scaleY(0.5); }
+        50% { transform: scaleY(1.5); }
+    }
+    `}
+    
+</style>
 
       <div className=" bg-gradient-to-br from-gray-100 to-purple-200">
       
