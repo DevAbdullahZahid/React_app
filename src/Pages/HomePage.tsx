@@ -307,7 +307,7 @@ const ListeningScreen = ({ colorClass }) => (
     <text x="50" y="30" fontSize="7" textAnchor="middle" className="fill-gray-700 font-sans font-semibold">Listen & Fill in the Blanks.</text>
     {/* Voice/Sound Wave Visualization (The "Voice SVG" requested) */}
     <g transform="translate(10, 50)">
-      <rect x="0" y="0" width="80" height="50" rx="5" className={`fill-current ${colorClass} opacity-90 shadow-lg`}/>
+      <rect x="0" y="0" width="80" height="60" rx="5" className={`fill-current ${colorClass} opacity-90 shadow-lg`}/>
       
       {/* Dynamic Sound Bars */}
       <rect x="10" y="25" width="4" height="10" rx="1" className="fill-white"/>
@@ -714,10 +714,10 @@ function HomePage() {
         <div className="max-w-7xl mx-auto ">
           <div className="grid grid-cols-4 md:grid-cols-4 gap-28">
             {[
-              { value: '50K+', label: '' },
+              { value: '1M+', label: 'Training Data Points' },
               { value: '8.0', label: 'Average Band Score' },
               { value: '95%', label: 'Success Rate' },
-              { value: '>72', label: 'Hour Support' }
+              { value: 'Within 72', label: 'Hour Support' }
             ].map((stat, index) => (
               <div key={index} className="text-center group cursor-pointer transition-transform duration-300 hover:scale-110">
                 <div className="text-4xl font-bold text-purple-600 mb-2 group-hover:scale-110 transition-transform duration-300">{stat.value}</div>
