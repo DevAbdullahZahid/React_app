@@ -712,7 +712,7 @@ function HomePage() {
       {/* Stats Section */}
       <section className="pt-20 pb-20 px-100 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-purple-100 " >
         <div className="max-w-7xl mx-auto ">
-          <div className="grid grid-cols-4 md:grid-cols-4 gap-28">
+          <div className="grid grid-cols-4 md:grid-cols-4 gap-40">
             {[
               { value: '1M+', label: 'Training Data Points' },
               { value: '8.0', label: 'Average Band Score' },
