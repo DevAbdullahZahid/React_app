@@ -27,9 +27,8 @@ const DisclaimerPage = () => {
             {/* --- AI-Specific IELTS Disclaimer (New Section) --- */}
             <div className="mb-10 pb-6 border-b border-purple-200">
               <div className="flex items-center mb-4">
-                <AlertTriangle className="w-8 h-8 text-red-600 mr-3 flex-shrink-0" />
                 <h2 className="text-3xl font-bold text-gray-800">
-                  iPrep Ielts Tool Disclaimer
+                 Disclaimer
                 </h2>
               </div>
               <p className="mb-4 text-lg">

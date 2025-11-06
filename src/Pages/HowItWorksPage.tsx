@@ -15,6 +15,7 @@ const HowItWorksPage: React.FC = () => {
     daysRequired?: number;
     hoursPerDay?: string;
     promoCode?: string;
+    individualTimes?: Record<string, number>;
   }>({});
 
   const handleSkillChange = (skill: string, value: number) => {
@@ -24,10 +25,8 @@ const HowItWorksPage: React.FC = () => {
   const handleGeneratePlan = async () => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:8000/api/ielts-plan/", {
-        target_band: targetBand,
-        skills,
-      });
+      // Simulated API Call (Replace with real backend later)
+      const response = await axios.get("/mockIeltsPlan.json");
       setResult(response.data);
     } catch (error) {
       console.error("Error fetching plan:", error);
@@ -39,7 +38,7 @@ const HowItWorksPage: React.FC = () => {
 
   return (
     <section className="pt-42 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 relative overflow-hidden">
-      {/* Background glow */}
+      {/* Background Glow */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
         <div
@@ -160,10 +159,12 @@ const HowItWorksPage: React.FC = () => {
 
           {/* Result Section */}
           {result.daysRequired && (
-            <div className="mt-10 bg-white rounded-3xl p-6 shadow-lg text-center space-y-4">
+            <div className="mt-10 bg-white rounded-3xl p-6 shadow-lg text-center space-y-6 animate-fadeIn">
               <h3 className="text-xl font-bold text-gray-800 mb-2">
                 Your Personalized Study Plan
               </h3>
+
+              {/* Overall Plan */}
               <div className="flex justify-center gap-8 text-lg">
                 <div>
                   <p className="font-semibold text-purple-600">
@@ -179,8 +180,27 @@ const HowItWorksPage: React.FC = () => {
                 </div>
               </div>
 
+              {/* Individual Skills */}
+              {result.individualTimes && (
+                <div className="mt-6 space-y-3 text-left">
+                  <h4 className="text-lg font-semibold text-purple-700 text-center">
+                    Individual Skill Progress
+                  </h4>
+                  {Object.entries(result.individualTimes).map(([skill, days]) => (
+                    <div
+                      key={skill}
+                      className="flex justify-between bg-purple-50 px-4 py-2 rounded-xl text-gray-700 font-medium"
+                    >
+                      <span className="capitalize">{skill}</span>
+                      <span>{days} days</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Promo Code */}
               {result.promoCode && (
-                <div className="mt-4 p-4 bg-purple-50 rounded-xl inline-block">
+                <div className="mt-4 p-4 bg-purple-100 rounded-xl inline-block">
                   <p className="text-purple-700 font-semibold">
                     🎁 Register now and get promo code:{" "}
                     <span className="text-purple-900 font-bold">

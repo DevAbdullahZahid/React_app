@@ -1,0 +1,11 @@
+{
+  "daysRequired": 30,
+  "hoursPerDay": "3 hours/day",
+  "promoCode": "BAND9NOW",
+  "individualTimes": {
+    "listening": 8,
+    "reading": 7,
+    "writing": 10,
+    "speaking": 5
+  }
+}
