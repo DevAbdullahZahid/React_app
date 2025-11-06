@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Target, ArrowRight, Award, TrendingUp } from "lucide-react";
+import { Target, ArrowRight, BookOpenCheck, Clock, Award } from "lucide-react";
 import axios from "axios";
 
 const HowItWorksPage: React.FC = () => {
@@ -38,8 +38,8 @@ const HowItWorksPage: React.FC = () => {
   };
 
   return (
-    <section className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 relative overflow-hidden">
-      {/* Background glow effect */}
+    <section className="pt-42 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800 relative overflow-hidden">
+      {/* Background glow */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse"></div>
         <div
@@ -48,42 +48,39 @@ const HowItWorksPage: React.FC = () => {
         ></div>
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10 grid md:grid-cols-2 gap-10 items-center">
+      {/* Two Column Layout */}
+      <div className="max-w-6xl mx-auto relative z-10 grid md:grid-cols-2 gap-10 items-start">
         {/* Left Section */}
-        <div className="space-y-8 text-white">
-          <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-            <Award className="w-5 h-5 text-white" />
-            <span className="text-sm font-medium">Smart IELTS Strategy</span>
+        <div className="flex flex-col justify-center space-y-6 text-white p-8">
+          <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full w-fit">
+            <BookOpenCheck className="w-5 h-5 text-white" />
+            <span className="text-sm font-medium">How It Works</span>
           </div>
 
-          <h2 className="text-4xl font-bold">
-            Plan Your IELTS Journey with Precision
+          <h2 className="text-4xl font-bold leading-tight">
+            Know <span className="text-yellow-300">Exactly</span> How Long It’ll Take to Reach Your IELTS Band
           </h2>
-          <p className="text-purple-100 text-lg leading-relaxed">
-            Whether you’re aiming for a <span className="font-semibold">7.0+</span> band
-            or just starting out, our AI-driven planner tailors a personalized
-            study roadmap for you. Track your progress, improve weak areas, and
-            stay consistent every day.
+
+          <p className="text-purple-100 text-lg max-w-md">
+            Select your target IELTS band and current skill levels. Our smart system will instantly estimate
+            how many <strong>days</strong> and <strong>hours per day</strong> you’ll need to study effectively — and even give you a <span className="text-yellow-300 font-semibold">promo discount</span> if you start early!
           </p>
 
-          <ul className="space-y-4">
-            <li className="flex items-center space-x-3">
-              <TrendingUp className="w-6 h-6 text-green-300" />
-              <span>Data-driven improvement tracking</span>
-            </li>
-            <li className="flex items-center space-x-3">
-              <Target className="w-6 h-6 text-yellow-300" />
-              <span>Set your band target & get a realistic timeline</span>
-            </li>
-            <li className="flex items-center space-x-3">
-              <ArrowRight className="w-6 h-6 text-pink-300" />
-              <span>Get daily study hour recommendations</span>
-            </li>
-          </ul>
+          <div className="flex space-x-6 pt-4">
+            <div className="flex items-center space-x-2">
+              <Clock className="w-6 h-6 text-yellow-300" />
+              <span>Estimated Study Time</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Award className="w-6 h-6 text-green-300" />
+              <span>Personalized Plan</span>
+            </div>
+          </div>
         </div>
 
         {/* Right Section */}
-        <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 w-full">
+        <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+          {/* Header */}
           <div className="text-center mb-8">
             <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
               <Target className="w-5 h-5 text-white" />
@@ -99,7 +96,7 @@ const HowItWorksPage: React.FC = () => {
           {/* Target Band */}
           <div className="mb-6">
             <label className="text-white font-semibold text-lg mb-2 block">
-              🎯 Tell us How many Bands you want to achieve: {targetBand}
+              🎯 Your Target Band: {targetBand}
             </label>
             <input
               type="range"
@@ -117,12 +114,8 @@ const HowItWorksPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Skill Level Sliders */}
+          {/* Skills */}
           <div className="space-y-4 mb-6">
-            
-            <label className="text-white font-semibold text-lg mb-2 block">
-              Your Skill Set:
-            </label>
             {Object.keys(skills).map((skill) => (
               <div key={skill}>
                 <label className="text-white font-medium mb-1 block capitalize">
@@ -143,7 +136,7 @@ const HowItWorksPage: React.FC = () => {
             ))}
           </div>
 
-          {/* Generate Button */}
+          {/* Generate Plan Button */}
           <div className="text-center">
             <button
               onClick={handleGeneratePlan}
