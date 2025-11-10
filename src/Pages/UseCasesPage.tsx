@@ -48,17 +48,17 @@ const UseCasesPage: React.FC = () => {
 
   return (
     /* --------------------------------------------------------------
-       PAGE-WIDE BACKGROUND IMAGE (covers the whole viewport)
+       PAGE SECTION WITH IMAGE BACKGROUND & LOCAL OVERLAY
        -------------------------------------------------------------- */
     <div
-      className="min-h-screen bg-cover bg-center bg-no-repeat"
+      className="relative min-h-screen bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `url('/images/usecase.jpg')`,
         minHeight: '100dvh',
       }}
     >
-      {/* Dark overlay – makes text readable */}
-      <div className="fixed inset-0 bg-purple-900/70" />
+      {/* Overlay only on this section */}
+      <div className="absolute inset-0 bg-purple-900/70" />
 
       {/* All content sits on top of the overlay */}
       <section
