@@ -6,7 +6,6 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -26,7 +25,7 @@ const ContactForm = () => {
     setTimeout(() => {
       console.log('Form Submitted:', formData);
       setIsSubmitting(false);
-      setFormData({ name: '', email: '',phone:'', message: '' });
+      setFormData({ name: '', email: '', message: '' });
       setStatus('Thank you! Your message has been sent successfully.');
       setTimeout(() => setStatus(''), 5000); // Clear status after 5 seconds
     }, 1500);
@@ -84,23 +83,7 @@ const ContactForm = () => {
             disabled={isSubmitting}
           />
         </div>
-      <div className="relative">
-          <label htmlFor="phone" className="sr-only">Pin</label>
-          <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-            <Phone className="w-5 h-5 text-purple-400" />
-          </div>
-          <input
-            type="phone"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="Pin"
-            required
-            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
-            disabled={isSubmitting}
-          />
-        </div>
+      
 
         {/* Message Textarea */}
         <div className="relative">
@@ -152,20 +135,31 @@ const ContactForm = () => {
 };
 
 // Contact Info Block Component
+// Contact Info Block Component
 const ContactInfo = () => {
-  
-
   return (
-    <div className="p-8 lg:p-12 bg-purple-700 rounded-2xl shadow-xl text-white h-full flex flex-col justify-center">
-      <h3 className="text-3xl font-bold mb-8">Get In Touch</h3>
-      <p className="text-purple-200 mb-10 text-lg">
-        We're here to help you achieve your target band score. Feel free to reach out with any questions.
-      </p>
-      
-     
+    <div className="relative p-8 lg:p-12 rounded-2xl shadow-xl text-white h-full flex flex-col justify-center overflow-hidden">
+      {/* Background Image */}
+      <img
+        src="/images/contact.jpg"
+        alt="Contact"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+      {/* Purple transparent overlay */}
+      <div className="absolute inset-0 bg-purple-800/80"></div>
+
+      {/* Content */}
+      <div className="relative z-10">
+        <h3 className="text-3xl font-bold mb-8">Get In Touch</h3>
+        <p className="text-purple-100 mb-10 text-lg">
+          We're here to help you achieve your target band score. Feel free to reach out with any questions.
+        </p>
+      </div>
     </div>
   );
 };
+
 
 // Component representing the content of the contact page
 const ContactUsPage = () => {

@@ -51,7 +51,7 @@ const OffersPage: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Header Section */}
-      <section className="pt-60 pb-40 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800">
+      <section className="pt-30 pb-40 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight animate-fade-in">
             Pricing & Offers

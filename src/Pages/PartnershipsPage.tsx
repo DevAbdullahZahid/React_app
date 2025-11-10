@@ -1,5 +1,8 @@
 import React from 'react';
 
+
+
+
 const PartnershipsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-100">
@@ -32,7 +35,7 @@ const PartnershipsPage: React.FC = () => {
           <h2 className="text-3xl font-bold text-purple-700 mb-6 mt-10">Contact Us</h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
             Interested in exploring a partnership? We'd love to hear from you. Please reach out to our partnerships team with your proposal.
-            <a href="/contactus" className="flex items-center justify-center bg-purple-600 text-white font-semibold text-base py-3 px-6 rounded-lg  shadow-lg hover:bg-purple-700 transition duration-300 transform hover:scale-[1.02]">Start a Conversation</a>
+            <a href="/partnerform" className="flex items-center justify-center bg-purple-600 text-white font-semibold text-base py-3 px-6 rounded-lg  shadow-lg hover:bg-purple-700 transition duration-300 transform hover:scale-[1.02]">Enterprises Inquiry</a>
           
           </p>
           

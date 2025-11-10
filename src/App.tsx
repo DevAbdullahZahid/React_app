@@ -19,6 +19,8 @@ import OffersPage from './Pages/OffersPage.tsx';
 import ContactUs from './Pages/ContactUS.tsx';
 import Disclaimer from './Pages/Disclaimer.tsx';
 import CookieConsentBanner from './components/CookieConsentBanner';
+import SupportForm from './Pages/SupportForm.tsx';
+import PartnershipForm from './Pages/PartnershipForm.tsx';
 
 
 
@@ -83,6 +85,8 @@ const App = () => {
           <Route path="offers" element={<OffersPage />} />
           <Route path="contactus" element={<ContactUs />} />
           <Route path="disclaimer" element={<Disclaimer />} />
+            <Route path="supportform" element={<SupportForm />} />
+          <Route path="partnerform" element={<PartnershipForm/>} />
         </Route>
       </Routes>
     </div>
