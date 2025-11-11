@@ -1,11 +1,16 @@
 {
-  "daysRequired": 30,
-  "hoursPerDay": "3 hours/day",
-  "promoCode": "BAND9NOW",
-  "individualTimes": {
-    "listening": 8,
-    "reading": 7,
-    "writing": 10,
-    "speaking": 5
-  }
+  "modules": [
+    { "name": "Reading",   "current_band": 4.0, "estimated_hours": 40.0, "weekly_focus": "High intensity: 10-15 hours/week" },
+    { "name": "Writing",   "current_band": 3.0, "estimated_hours": 80.0, "weekly_focus": "High intensity: 10-15 hours/week" },
+    { "name": "Listening", "current_band": 6.0, "estimated_hours": 20.0, "weekly_focus": "High intensity: 10-15 hours/week" },
+    { "name": "Speaking",  "current_band": 5.0, "estimated_hours": 48.0, "weekly_focus": "High intensity: 10-15 hours/week" }
+  ],
+  "total_hours": 188.0,
+  "recommended_daily_hours": 8.0,
+  "estimated_days": 24,
+  "estimated_weeks": 4,
+  "overall_notes": "To achieve your target band of 8.0 at 8.0 hours/day, you'll need approximately 24 days (4 weeks)...",
+  "suggestion": "Great commitment! You're on track to finish even faster than a month.",
+  "promo_code": "IELTS25OFF",
+  "expires_at": "2025-11-13T01:12:00Z"
 }
