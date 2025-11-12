@@ -1,8 +1,6 @@
 // src/pages/HowItWorksPage.tsx
 import React, { useState, useEffect } from "react";
 
-import { WEBSITE_NAME } from "../config/constants";
-
 import {
   Target,
   ArrowRight,
@@ -12,7 +10,7 @@ import {
   RotateCcw,
   PartyPopper,
 } from "lucide-react";
-const API_URL = import.meta.env.VITE_API_BASE_URL
+const API_URL = import.meta.env.VITE_API_BASE_URL || process.env.REACT_APP_API_BASE_URL;
 
 interface PromoCountdownProps {
   expiresAt?: string;

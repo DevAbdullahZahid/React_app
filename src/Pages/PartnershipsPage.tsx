@@ -25,12 +25,12 @@ const PartnershipsPage: React.FC = () => {
           
           <h2 className="text-3xl font-bold text-purple-700 mb-6 mt-10">For Educators & Institutions</h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
-            Integrate iPrep IELTS into your curriculum. We offer special dashboards for educators to track student progress, assign targeted practice, and manage classrooms. Provide your students with a powerful AI learning tool while gaining insights into their performance.
+            Integrate { WEBSITE_NAME } into your curriculum. We offer special dashboards for educators to track student progress, assign targeted practice, and manage classrooms. Provide your students with a powerful AI learning tool while gaining insights into their performance.
           </p>
 
           <h2 className="text-3xl font-bold text-purple-700 mb-6 mt-10">Affiliate Program</h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
-            Are you a content creator, blogger, or IELTS coach? Join our affiliate program and earn commissions for referring new users to iPrep IELTS. We provide you with all the marketing materials you need to get started.
+            Are you a content creator, blogger, or IELTS coach? Join our affiliate program and earn commissions for referring new users to { WEBSITE_NAME }. We provide you with all the marketing materials you need to get started.
           </p>
 
           <h2 className="text-3xl font-bold text-purple-700 mb-6 mt-10">Contact Us</h2>

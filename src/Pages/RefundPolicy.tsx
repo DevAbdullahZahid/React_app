@@ -23,7 +23,7 @@ const RefundPolicy: React.FC = () => {
         <div className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-3xl shadow-2xl animate-fade-in" style={{ animationDelay: '0.4s' }}>
           
           <p className="text-gray-700 mb-6 leading-relaxed">
-           At iPrep Ielts, we want you to have a smooth and satisfying learning experience.
+           At { WEBSITE_NAME }, we want you to have a smooth and satisfying learning experience.
 
 If you’ve purchased a premium plan but have not used any premium features, you are eligible for a full refund.
 Refunds can be requested directly through the app within the specified refund window.
