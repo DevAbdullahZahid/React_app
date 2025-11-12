@@ -1,6 +1,8 @@
 import React from 'react';
 import { CheckCircle, ArrowRight } from 'lucide-react';
 
+import { WEBSITE_NAME } from "../config/constants";
+
 const OffersPage: React.FC = () => {
   const plans = [
     {

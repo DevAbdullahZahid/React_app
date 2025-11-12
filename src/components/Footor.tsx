@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'; // NOTE: I changed 'react-router' to 'r
 
 import { Sparkles } from 'lucide-react';
 
+import { WEBSITE_NAME } from "../config/constants";
+
 const GooglePlayIcon = ({ className = "w-6 h-6" }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
     <path fillRule="evenodd" clipRule="evenodd" d="M3.737 21.085l16.142-8.525a.916.916 0 000-1.831L3.737 2.203 3 5.483l12.79 6.75-12.79 6.75-.737 3.32z" />
@@ -29,7 +31,7 @@ const Footer: React.FC = () => {
               <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl flex items-center justify-center shadow-lg shadow-purple-900/50">
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
-              <span className="text-white font-bold">iPrep IELTS</span>
+              <span className="text-white font-bold">{ WEBSITE_NAME }</span>
             </div>
             <p className="text-sm pb-10">
               Intelligent IELTS preparation platform for achieving your dream score.
@@ -108,7 +110,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className="border-t border-gray-800 pt-8 text-center text-sm">
-          <p>&copy; 2025 iPrep IELTS</p>
+          <p>&copy; 2025 { WEBSITE_NAME }</p>
         </div>
       </div>
     </footer>

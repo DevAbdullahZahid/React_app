@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 // Import your utility functions
 import { setCookie, getCookie } from '../utils/cookieUtils'; 
 
+import { WEBSITE_NAME } from "../config/constants";
+
 const COOKIE_NAME = "cookieConsent";
 
 const CookieConsent: React.FC = () => {

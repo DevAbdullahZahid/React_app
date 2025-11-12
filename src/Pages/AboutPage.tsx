@@ -1,4 +1,5 @@
 import React from 'react';
+import { WEBSITE_NAME } from "../config/constants";
 
 const AboutPage: React.FC = () => {
   return (
@@ -7,7 +8,7 @@ const AboutPage: React.FC = () => {
       <section className="pt-48 pb-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-800">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight animate-fade-in">
-            About iPrep IELTS
+            About {WEBSITE_NAME}  
           </h1>
           <p className="text-lg text-purple-100 mb-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             Our mission is to make quality IELTS preparation accessible to everyone.
@@ -21,7 +22,7 @@ const AboutPage: React.FC = () => {
           
           <h2 className="text-3xl font-bold text-purple-700 mb-6 mt-10">Our Mission</h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
-            iPrep IELTS was founded on a simple principle: achieving your dream band score shouldn't be a privilege, it should be a plan. We combine cutting-edge artificial intelligence with expert-crafted learning materials to create a personalized study partner that guides you every step of the way.
+            {WEBSITE_NAME}   was founded on a simple principle: achieving your dream band score shouldn't be a privilege, it should be a plan. We combine cutting-edge artificial intelligence with expert-crafted learning materials to create a personalized study partner that guides you every step of the way.
           </p>
           <p className="text-gray-700 mb-6 leading-relaxed">
             We believe that by providing instant, actionable feedback on writing and speaking, adaptive practice for listening and reading, and a clear roadmap to success, we can empower students everywhere to unlock their full potential and achieve their global ambitions.

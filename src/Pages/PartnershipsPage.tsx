@@ -1,6 +1,7 @@
 import React from 'react';
 
 
+import { WEBSITE_NAME } from "../config/constants";
 
 
 const PartnershipsPage: React.FC = () => {

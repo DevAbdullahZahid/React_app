@@ -7,6 +7,8 @@ import {
   ChevronDown,
 } from 'lucide-react';
 
+import { WEBSITE_NAME } from "../config/constants";
+
 const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -29,7 +31,7 @@ const Header: React.FC = () => {
               <Sparkles className="w-6 h-6 text-white" />
             </div>
             {/* --- BRANDING CHANGE --- */}
-            <span className="text-xl font-bold text-gray-900">iPrep IELTS</span>
+            <span className="text-xl font-bold text-gray-900">{ WEBSITE_NAME }</span>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">

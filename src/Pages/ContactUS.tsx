@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, User, MessageSquare } from 'lucide-react';
 
+import { WEBSITE_NAME } from "../config/constants";
+
 // Main Contact Form Component
 const ContactForm = () => {
   const [formData, setFormData] = useState({

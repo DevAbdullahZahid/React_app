@@ -21,6 +21,8 @@ import {
 // import { Link } from 'react-router'; // Link is not used, keeping it commented out
 import { MdOutlineTimeline } from 'react-icons/md';
 
+import { WEBSITE_NAME } from "../config/constants";
+
 // --- SVG Screen Mockup Components ---
 // We define simple, stylized SVGs to represent the content of each app screen.
 
@@ -413,7 +415,7 @@ function HomePage() {
 
   // Utility component for the floating animation (adjusting speed for better visibility)
   const FloatingIcon = ({ screen }) => {
-    
+    return <div></div>;
   };
 
 
@@ -442,8 +444,7 @@ function HomePage() {
             <ScreenContent colorClass={colorClass} />
           </div>
 
-          {/* Floating Icon (Foreground Layer) */}
-          <FloatingIcon screen={screen} />
+          
           
         </div>
       </div>
@@ -510,7 +511,7 @@ function HomePage() {
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight animate-fade-in">
               Master IELTS with
               <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-purple-800 animate-gradient">
-                Intelligent Learning with iPrep Ietls
+                Intelligent Learning with { WEBSITE_NAME }
               </span>
             </h1>
 

@@ -1,4 +1,6 @@
 import React from 'react';
+
+import { WEBSITE_NAME } from "../config/constants";
 import {
   BookOpen,
   Brain,
@@ -6,6 +8,7 @@ import {
   BarChart,
   Award,
 } from 'lucide-react';
+
 
 const UseCasesPage: React.FC = () => {
   const features = [

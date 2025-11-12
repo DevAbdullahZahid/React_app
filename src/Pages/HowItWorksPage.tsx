@@ -1,5 +1,8 @@
 // src/pages/HowItWorksPage.tsx
 import React, { useState, useEffect } from "react";
+
+import { WEBSITE_NAME } from "../config/constants";
+
 import {
   Target,
   ArrowRight,
@@ -9,20 +12,10 @@ import {
   RotateCcw,
   PartyPopper,
 } from "lucide-react";
+const API_URL = import.meta.env.VITE_API_BASE_URL
 
-/* ------------------------------------------------------------------ */
-/*  CONFIG – flip this when you go live                               */
-/* ------------------------------------------------------------------ */
-const USE_MOCK = true;                     // ← false → real API
-const MOCK_URL = "/mockIeltsPlan.json";    // served from public/
-const LIVE_URL = "/api/v1/ielts-plan";     // your real endpoint
-/* ------------------------------------------------------------------ */
-
-/* ------------------------------------------------------------------ */
-/*  PROMO COUNTDOWN                                                   */
-/* ------------------------------------------------------------------ */
 interface PromoCountdownProps {
-  expiresAt?: string; // ISO string
+  expiresAt?: string;
 }
 const PromoCountdown: React.FC<PromoCountdownProps> = ({ expiresAt }) => {
   const [seconds, setSeconds] = useState(0);
@@ -71,9 +64,8 @@ const PromoCountdown: React.FC<PromoCountdownProps> = ({ expiresAt }) => {
   );
 };
 
-/* ------------------------------------------------------------------ */
-/*  MAIN PAGE                                                         */
-/* ------------------------------------------------------------------ */
+/*  MAIN PAGE */
+
 const HowItWorksPage: React.FC = () => {
   const [expectedBand, setExpectedBand] = useState(8.0);
   const [dailyHours, setDailyHours] = useState(8.0);
@@ -98,7 +90,6 @@ const HowItWorksPage: React.FC = () => {
     else localStorage.removeItem("ieltsPlan");
   }, [plan]);
 
-  // helpers
   const showToast = (type: "error" | "success", msg: string) => {
     setToast({ type, msg });
     setTimeout(() => setToast(null), 5000);
@@ -116,29 +107,25 @@ const HowItWorksPage: React.FC = () => {
     setToast(null);
   };
 
-  // ---- FETCH (mock or live) ----
   const generatePlan = async () => {
     setLoading(true);
     setToast(null);
 
     try {
-      const url = USE_MOCK ? MOCK_URL : LIVE_URL;
+      const url = `${API_URL}/preparation-plan`;
 
       const options: RequestInit = {
-        method: USE_MOCK ? "GET" : "POST",
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-      };
-
-      if (!USE_MOCK) {
-        options.body = JSON.stringify({
+        body: JSON.stringify({
           reading_pct: skills.reading_pct / 100,
           writing_pct: skills.writing_pct / 100,
           listening_pct: skills.listening_pct / 100,
           speaking_pct: skills.speaking_pct / 100,
           expected_band: expectedBand,
           user_suggested_daily_hours: dailyHours,
-        });
-      }
+        }),
+      };
 
       console.log(`Fetching ${url}`, options.body ?? "");
 
@@ -151,7 +138,7 @@ const HowItWorksPage: React.FC = () => {
       const json = await res.json();
       console.log("Response →", json);
 
-      const planData = USE_MOCK ? json : json.data?.plan;
+      const planData = json.data?.plan;
       if (!planData || !Array.isArray(planData.modules) || typeof planData.total_hours !== "number") {
         throw new Error("Invalid plan format");
       }
@@ -205,9 +192,9 @@ const HowItWorksPage: React.FC = () => {
 
         {/* RIGHT */}
         <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
-          {/* INPUT FORM */}
           {!plan ? (
             <>
+              {/* FORM */}
               <div className="text-center mb-8">
                 <div className="inline-flex items-center space-x-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
                   <Target className="w-5 h-5 text-white" />
