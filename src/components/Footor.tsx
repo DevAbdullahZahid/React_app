@@ -58,43 +58,45 @@ const Footer: React.FC = () => {
               
             </ul>
           </div>
-          
           {/* --- START OF STORE DOWNLOAD SECTION --- */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Available at:</h4>
-            
-            <div className="flex flex-col gap-4">
-              
-              {/* Google Play Button */}
-              <a 
-                href="#" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-md transition duration-200 hover:bg-gray-700 w-full transform hover:scale-[1.02] border-2 border-transparent hover:border-green-400 max-w-[200px]"
-              >
-                <GooglePlayIcon className="w-5 h-5 mr-2 text-green-400" />
-                <div className="text-left">
-                  <p className="text-[10px] opacity-75 leading-none">GET IT ON</p>
-                  <p className="font-semibold text-sm leading-tight">Google Play</p>
-                </div>
-              </a>
+{/* --- START OF STORE DOWNLOAD SECTION --- */}
+<div>
+  <h4 className="text-white font-semibold mb-4">Available at:</h4>
 
-              {/* App Store Button */}
-              <a 
-                href="#" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center bg-black text-white px-4 py-2 rounded-lg shadow-md transition duration-200 hover:bg-gray-700 w-full transform hover:scale-[1.02] border-2 border-transparent hover:border-blue-400 max-w-[200px]"
-              >
-                <AppleIcon className="w-5 h-5 mr-2 text-blue-400" />
-                <div className="text-left">
-                  <p className="text-[10px] opacity-75 leading-none">Download on the</p>
-                  <p className="font-semibold text-sm leading-tight">App Store</p>
-                </div>
-              </a>
-            </div>
-            
-          </div>
+  {/* Wrap both badges in one flex container */}
+  <div className="flex items-center gap-4 flex-wrap">
+    
+    {/* Google Play Button */}
+    <a 
+      href="#" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="transition-transform duration-200 hover:scale-[1.03]"
+    >
+      <img 
+        src="/images/google-play.svg" 
+        alt="Get it on Google Play" 
+        className="w-[130px] h-auto rounded-md shadow-md"
+      />
+    </a>
+
+    {/* App Store Button */}
+    <a 
+      href="#" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="transition-transform duration-200 hover:scale-[1.03]"
+    >
+      <img 
+        src="/images/app-store.svg" 
+        alt="Download on the App Store" 
+        className="w-[120px] h-auto rounded-md shadow-md"
+      />
+    </a>
+
+  </div>
+</div>
+
           {/* --- END OF STORE DOWNLOAD SECTION --- */}
           
           <div>
@@ -109,9 +111,22 @@ const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-        <div className="border-t border-gray-800 pt-8 text-center text-sm">
+        <div className="border-t border-gray-800 pt-8  text-center text-sm">
           <p>&copy; 2025 { WEBSITE_NAME }</p>
         </div>
+        <div className="relative w-full">
+  <p className="text-sm mt-1 text-center">
+    <a
+      href="https://rezotera.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-blue-400 hover:underline"
+    >
+      Powered by Rezotera.com
+    </a>
+  </p>
+</div>
+
       </div>
     </footer>
   );

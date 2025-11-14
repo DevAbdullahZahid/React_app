@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, User, MessageSquare } from 'lucide-react';
-
+import { Mail, Send, User, MessageSquare, BookCheck } from 'lucide-react';
 import { WEBSITE_NAME } from "../config/constants";
 
-// Main Contact Form Component
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    subject:'',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -18,31 +17,55 @@ const ContactForm = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setStatus('Sending message...');
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  setStatus('');
 
-    // Simulate API call delay
-    setTimeout(() => {
-      console.log('Form Submitted:', formData);
-      setIsSubmitting(false);
-      setFormData({ name: '', email: '', message: '' });
-      setStatus('Thank you! Your message has been sent successfully.');
-      setTimeout(() => setStatus(''), 5000); // Clear status after 5 seconds
-    }, 1500);
-  };
+  try {
+    const response = await fetch("https://dev-api-iprep.rezotera.com/api/v1/support-inquiries/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email_type: "inquiry",
+        recipient_email: "contact@rezotera.com",
+        recipient_name: "Rezotera Team",
+        name: formData.name,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      }),
+    });
 
+    if (response.ok) {
+      setStatus("Inquiry sent successfully!");
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } else {
+      const errorData = await response.json().catch(() => ({}));
+      console.error("Server error:", errorData);
+      setStatus("Failed to send inquiry. Please try again.");
+    }
+  } catch (error) {
+    console.error("Network error:", error);
+    setStatus("No internet connection or server is down.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
   return (
     <div className="p-8 bg-white rounded-2xl shadow-xl border border-gray-100 h-full">
       <h3 className="text-3xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
-      
+
       {status && (
-        <div className={`p-3 mb-4 rounded-xl text-sm font-medium ${
-          status.includes('successfully') 
-            ? 'bg-green-100 text-green-700' 
-            : 'bg-yellow-100 text-yellow-700'
-        }`}>
+        <div
+          className={`p-3 mb-4 rounded-xl text-sm font-medium ${
+            status.includes('successfully')
+              ? 'bg-green-100 text-green-700'
+              : 'bg-yellow-100 text-yellow-700'
+          }`}
+        >
           {status}
         </div>
       )}
@@ -67,6 +90,7 @@ const ContactForm = () => {
           />
         </div>
 
+       
         {/* Email Input */}
         <div className="relative">
           <label htmlFor="email" className="sr-only">Email Address</label>
@@ -85,7 +109,23 @@ const ContactForm = () => {
             disabled={isSubmitting}
           />
         </div>
-      
+         <div className="relative">
+          <label htmlFor="subject" className="sr-only">Subject</label>
+          <div className="absolute inset-y-0 left-0 flex items-center pl-3">
+            <BookCheck className="w-5 h-5 text-purple-400" />
+          </div>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            placeholder="Subject"
+            required
+            className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+            disabled={isSubmitting}
+          />
+        </div>
 
         {/* Message Textarea */}
         <div className="relative">
@@ -136,79 +176,46 @@ const ContactForm = () => {
   );
 };
 
-// Contact Info Block Component
-// Contact Info Block Component
-const ContactInfo = () => {
-  return (
-    <div className="relative p-8 lg:p-12 rounded-2xl shadow-xl text-white h-full flex flex-col justify-center overflow-hidden">
-      {/* Background Image */}
-      <img
-        src="/images/contact.jpg"
-        alt="Contact"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+// Contact Info Component
+const ContactInfo = () => (
+  <div className="relative p-8 lg:p-12 rounded-2xl shadow-xl text-white h-full flex flex-col justify-center overflow-hidden">
+    <img src="/images/contact.jpg" alt="Contact" className="absolute inset-0 w-full h-full object-cover" />
+    <div className="absolute inset-0 bg-purple-800/80"></div>
+    <div className="relative z-10">
+      <h3 className="text-3xl font-bold mb-8">Get In Touch</h3>
+      <p className="text-purple-100 mb-10 text-lg">
+        We're here to help you achieve your target band score. Feel free to reach out with any questions.
+      </p>
+    </div>
+  </div>
+);
 
-      {/* Purple transparent overlay */}
-      <div className="absolute inset-0 bg-purple-800/80"></div>
-
-      {/* Content */}
-      <div className="relative z-10">
-        <h3 className="text-3xl font-bold mb-8">Get In Touch</h3>
-        <p className="text-purple-100 mb-10 text-lg">
-          We're here to help you achieve your target band score. Feel free to reach out with any questions.
+const ContactUsPage = () => (
+  <>
+    <header className="py-20 bg-gradient-to-r from-purple-800 to-purple-600 text-white shadow-md">
+      <div className="max-w-7xl py-30 mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 className="text-5xl font-extrabold mb-3">Contact Our Team</h1>
+        <p className="text-xl text-purple-200">
+          We will respond to your questions within 72 hours about courses, exams, and support.
         </p>
       </div>
-    </div>
-  );
-};
+    </header>
 
-
-// Component representing the content of the contact page
-const ContactUsPage = () => {
-  return (
-    <>
-      {/* Hero Section */}
-      <header className="py-20 bg-gradient-to-r from-purple-800 to-purple-600 text-white shadow-md">
-        <div className="max-w-7xl py-30 mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl font-extrabold mb-3">Contact Our Team</h1>
-          <p className="text-xl text-purple-200">
-            We will respond to answer your questions within 72 hours about courses, exams, and support.
-          </p>
+    <section className="py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
+          <ContactForm />
+          <ContactInfo />
         </div>
-      </header>
+      </div>
+    </section>
+  </>
+);
 
-      {/* Main Content (Contact Grid) */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
-            
-            {/* Left Column: Contact Form */}
-            <ContactForm />
-
-            {/* Right Column: Contact Info */}
-            <ContactInfo />
-            
-          </div>
-        </div>
-      </section>
-
-      
-    </>
-  );
-};
-
-/**
- * Main application component wrapper. 
- * This is the component that must be exported for the Canvas to render the file correctly.
- * In a real application, this would be your primary App component which handles routing.
- */
-const App = () => {
-  return (
-    <div className="min-h-screen bg-gray-50 font-sans">
-      <ContactUsPage />
-    </div>
-  );
-};
+const App = () => (
+  <div className="min-h-screen bg-gray-50 font-sans">
+    <ContactUsPage />
+  </div>
+);
 
 export default App;
-
